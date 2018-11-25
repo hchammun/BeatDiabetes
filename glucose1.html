@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Glucose level</title>
+	<meta name="viewport" charset="utf-8" content="width=device-width , initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+
+	<div data-role="page" id="home" data-theme="b"><!-- Starting page div -->
+		
+		<div data-role="header">
+			
+		</div>
+
+
+		<div data-role="main" class="ui-content">
+
+
+			<!-- diabetic range-->
+			<h2>Know your normal blood glucose level</h2>
+
+			<form>
+				<h3>Diabetic - Normal blood glucose range</h3>
+
+
+
+				<!--After meal test -->
+				<label>If your glucose test was at least 90min after your meal</label>
+
+				<input type="text" name="num3" id="num3" placeholder="Please enter your Value"><br>
+
+				<label>Unit on glucometer : </label><select name="unit3" id="unit3">
+					<option value="mmol3">Mmol/L</option>
+					<option value="mgdl3">Mg/dL</option>
+					
+				</select>
+
+
+				 <p id="result3"  style="color: ;"></p>
+				 <!--<input type="text" name="result" id="result" data-role="button">-->
+
+				<a href="#" id="btnCal3" data-role="button" >Calculate</a>
+				<input type="reset" name="reset" value="Reset" data-role="button">
+
+
+				<!--close After meal test -->
+				
+
+
+
+				<!-- before meal test -->
+
+
+
+
+
+				<label>If your glucose test was before your meal</label>
+
+				<input type="text" name="num4" id="num4" placeholder="Please enter your Value"><br>
+
+				<label>Unit on glucometer : </label><select name="unit4" id="unit4">
+					<option value="mmol4">Mmol/L</option>
+					<option value="mgdl4">Mg/dL</option>
+					
+				</select>
+
+
+				 <p id="result4"  style="color: ;"></p>
+				 <!--<input type="text" name="result" id="result" data-role="button">-->
+
+				<a href="#" id="btnCal4" data-role="button" >Calculate</a>
+				<input type="reset" name="reset" value="Reset" data-role="button">
+
+
+
+
+
+				<!-- close before meal test -->
+
+
+
+
+
+			</form>
+			
+		</div>
+
+
+		<div data-role="footer">
+			
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	
+	$(document).ready(function(){
+
+		console.log("Good");
+
+
+		// diabetic range
+
+		$('#btnCal3').on('click',function(){
+			
+			console.log("Button click");
+
+			var num3 = parseFloat($('#num3').val());
+
+			var unit3 = $('#unit3').val();
+
+            
+
+            //check isNAN
+			if (!isNaN(num3)){
+			
+
+
+
+		    //for mmol
+			if(unit3 == 'mmol3' && num3 < 4.0){
+
+				total = 'Note that your blood glucose is lower than the normal range (hypoglycemia state) for a diabetic person, as it is less than 4.0 Mmol/L. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea';
+
+			}
+
+			else if(unit3 == 'mmol3' && num3 >= 4.0 && num3 <= 8.5 ){
+
+				total = 'Your blood glucose is in the normal range as it is between 4mmol/L & 8.5mmol/L for a diabetic person';
+			}
+
+			else if (unit3 == 'mmol3' && num3 > 8.5 ){
+
+				total = 'Your blood glucose is higher than the normal range for a diabetic person, as it is greater than 8.5mmol/L at least 90mins after your meal.';
+			}
+
+
+			//for mgdl
+
+			else if(unit3 == 'mgdl3' && num3 <= 70 ){
+
+				total = 'Note that your blood glucose is lower than the normal range (hypoglycemia state) for a diabetic person, as it is less than 70 mg/dL. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea';
+			}
+
+
+			else if(unit3 == 'mgdl3' && num3 > 70 && num3 <= 185 ){
+
+				total = 'Your blood glucose is in the normal range for a diabetic person as it is between 70 mg/dL & 185 mg/dL';
+			}
+
+
+			else if (unit3 == 'mgdl3' && num3 > 185 ){
+
+				total = 'Your blood glucose is higher than the normal range for a diabetic person, as it is greater than 185 mg/dL at least 90mins after your meal.';
+			}
+
+
+
+
+
+
+
+			//output results
+			$('#result3').html(" "+total+" ");
+
+		}//close isNan
+
+
+		else{
+
+			$('#result3').html("Enter your Number and only numbers accepted");
+		}
+
+
+
+
+
+		});// close btnCal3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// diabetic range before meal calculation
+
+		$('#btnCal4').on('click',function(){
+			
+			console.log("Button click");
+
+			var num4 = parseFloat($('#num4').val());
+
+			var unit4 = $('#unit4').val();
+
+            
+
+            //check isNAN
+			if (!isNaN(num4)){
+			
+
+
+
+		    //for mmol
+			if(unit4 == 'mmol4' && num4 < 4.0){
+
+				total = 'Note that your blood glucose is lower than the normal range (hypoglycemia state) for a diabetic person as it is less than 4.0 Mmol/L. Please have something that has at least 15 grams (g) of carbohydrates. For example: a fruit or one cup of tea.';
+
+			}
+
+			else if(unit4 == 'mmol4' && num4 >= 4.0 && num4 <= 7.0 ){
+
+				total = 'Your blood glucose is in the normal range as it is between 4 mmol/L & 7.0 mmol/L for a diabetic person.';
+			}
+
+
+
+			else if (unit4 == 'mmol4' && num4 > 7.0 ){
+
+				total = 'Your blood glucose is higher than the normal range as it is greater than 7.0 mmol/L for a diabetic person.';
+			}
+
+
+
+
+			//for mgdl
+
+			else if(unit4 == 'mgdl4' && num4 <= 70 ){
+
+				total = 'Note that your blood glucose is lower than the normal range (hypoglycemia state) as it is less than 70 mg/dL. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea';
+			}
+
+
+			else if(unit4 == 'mgdl4' && num4 > 70 && num4 <= 125 ){
+
+				total = 'Your blood glucose is in the normal range as it is between 70 mg/dL & 125 mg/dL fro a diabetic person.';
+			}
+
+
+			else if (unit4 == 'mgdl4' && num4 > 125 ){
+
+				total = 'Your blood glucose is higher than the normal range for a diabetic person, as it is greater than 125 mg/dL. ';
+			}
+
+
+
+
+
+
+
+			//output results
+			$('#result4').html(" "+total+" ");
+
+		}//close isNan
+
+
+		else{
+
+			$('#result4').html("Enter your Number and only numbers accepted");
+		}
+
+
+
+
+
+		});// close btnCal4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	});// close document function
+
+
+
+</script>
+</body>
+</html>

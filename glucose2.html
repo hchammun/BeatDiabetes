@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Glucose level</title>
+	<meta name="viewport" charset="utf-8" content="width=device-width , initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+
+	<div data-role="page" id="home" data-theme="b"><!-- Starting page div -->
+		
+		<div data-role="header">
+			
+		</div>
+
+
+		<div data-role="main" class="ui-content">
+
+
+			<!-- children diabetic range-->
+			<h2>Know your normal blood glucose level</h2>
+
+			<form>
+				<h3>Children with diabetes (12 years or less)- Normal blood glucose range</h3>
+
+
+
+				<!--After meal test -->
+				<label>If the glucose test was at least 90min after meal</label>
+
+				<input type="text" name="num5" id="num5" placeholder="Please enter your Value"><br>
+
+				<label>Unit on glucometer : </label><select name="unit5" id="unit5">
+					<option value="mmol5">Mmol/L</option>
+					<option value="mgdl5">Mg/dL</option>
+					
+				</select>
+
+
+				 <p id="result5"  style="color: ;"></p>
+				 <!--<input type="text" name="result" id="result" data-role="button">-->
+
+				<a href="#" id="btnCal5" data-role="button" >Calculate</a>
+				<input type="reset" name="reset" value="Reset" data-role="button">
+
+
+				<!--close After meal test -->
+				
+
+
+
+				<!-- before meal test -->
+
+
+
+
+
+				<label>If the glucose test was before meal</label>
+
+				<input type="text" name="num6" id="num6" placeholder="Please enter your Value"><br>
+
+				<label>Unit on glucometer : </label><select name="unit6" id="unit6">
+					<option value="mmol6">Mmol/L</option>
+					<option value="mgdl6">Mg/dL</option>
+					
+				</select>
+
+
+				 <p id="result6"  style="color: ;"></p>
+				 <!--<input type="text" name="result" id="result" data-role="button">-->
+
+				<a href="#" id="btnCal6" data-role="button" >Calculate</a>
+				<input type="reset" name="reset" value="Reset" data-role="button">
+
+
+
+
+
+				<!-- close before meal test -->
+
+
+
+
+
+			</form>
+			
+		</div>
+
+
+		<div data-role="footer">
+			
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	
+	$(document).ready(function(){
+
+		console.log("Good");
+
+
+		// children diabetic range
+
+		$('#btnCal5').on('click',function(){
+			
+			console.log("Button click");
+
+			var num5 = parseFloat($('#num5').val());
+
+			var unit5 = $('#unit5').val();
+
+            
+
+            //check isNAN
+			if (!isNaN(num5)){
+			
+
+
+
+		    //for mmol
+			if(unit5 == 'mmol5' && num5 < 5.0){
+
+				total = 'Note that the glucose level is lower than the normal range (hypoglycemia state), as it is less than 4.0 Mmol/L. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea.';
+
+			}
+
+			else if(unit5 == 'mmol5' && num5 >= 5.0 && num5 <= 9.0 ){
+
+				total = 'The blood glucose is in the normal range as it is between 4 mmol/L & 9.0 mmol/L for a diabetic children.';
+			}
+
+			else if (unit5 == 'mmol5' && num5 > 9.0 ){
+
+				total = 'The blood glucose is higher than the normal range for a diabetic children, as it is greater than 9.0 mmol/L at least 90mins after meal.';
+			}
+
+
+			//for mgdl
+
+			else if(unit5 == 'mgdl5' && num5 <= 90 ){
+
+				total = 'Note that the glucose level is lower than the normal range (hypoglycemia state), as it is less than 90 mg/dL. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea.';
+			}
+
+
+			else if(unit5 == 'mgdl5' && num5 > 90 && num5 <= 160 ){
+
+				total = 'The blood glucose is in the normal range as it is between 90 mg/dL & 160 mg/dL for a diabetic children.';
+			}
+
+
+			else if (unit5 == 'mgdl5' && num5 > 160 ){
+
+				total = 'The blood glucose is higher than the normal range for a diabetic children, as it is greater than 160 mg/dL at least 90mins after meal.';
+			}
+
+
+
+
+
+
+
+			//output results
+			$('#result5').html(" "+total+" ");
+
+		}//close isNan
+
+
+		else{
+
+			$('#result5').html("Enter your Number and only numbers accepted");
+		}
+
+
+
+
+
+		});// close btnCal5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// diabetic range before meal calculation
+
+		$('#btnCal6').on('click',function(){
+			
+			console.log("Button click");
+
+			var num6 = parseFloat($('#num6').val());
+
+			var unit6 = $('#unit6').val();
+
+            
+
+            //check isNAN
+			if (!isNaN(num6)){
+			
+
+
+
+		    //for mmol
+			if(unit6 == 'mmol6' && num6 < 4.0){
+
+				total = 'Note that the glucose level is lower than the normal range (hypoglycemia state), as it is less than 4.0 Mmol/L. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea';
+
+			}
+
+			else if(unit6 == 'mmol6' && num6 >= 4.0 && num6 <= 7.0 ){
+
+				total = 'The blood glucose is in the normal range as it is between 4 mmol/L & 7.0 mmol/L for a diabetic children.';
+			}
+
+
+
+			else if (unit6 == 'mmol6' && num6 > 7.0 ){
+
+				total = 'Your blood glucose is higher than the normal range as it is greater than 7.0 mmol/L for a diabetic Children.';
+			}
+
+
+
+
+			//for mgdl
+
+			else if(unit6 == 'mgdl6' && num6 <= 70 ){
+
+				total = 'Note that the blood glucose is lower than the normal range (hypoglycemia state) as it is less than 70 mg/dL. Please have something that has at least 15 grams (g) of carbohydrates. For examples: a fruit or one cup of tea';
+			}
+
+
+			else if(unit6 == 'mgdl6' && num6 > 70 && num6 <= 125 ){
+
+				total = 'Your blood glucose is in the normal range as it is between 70 mg/dL & 125 mg/dL fro a diabetic children.';
+			}
+
+
+			else if (unit6 == 'mgdl6' && num6 > 125 ){
+
+				total = 'The blood glucose is higher than the normal range for a diabetic children, as it is greater than 125 mg/dL. ';
+			}
+
+
+
+
+
+
+
+			//output results
+			$('#result6').html(" "+total+" ");
+
+		}//close isNan
+
+
+		else{
+
+			$('#result6').html("Enter your Number and only numbers accepted");
+		}
+
+
+
+
+
+		});// close btnCal6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	});// close document function
+
+
+
+</script>
+</body>
+</html>

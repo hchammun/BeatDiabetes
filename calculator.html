@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css">
+
+
+	<script src="jquery.js"></script>
+	<script src="jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+
+	<!-- homepage-->
+
+	<div data-role="page" id="home"  data-theme="b">
+
+
+		<div data-role="header">
+			<h1>Simple calculator</h1>
+		</div>
+
+
+		<div data-role="navbar" >
+			<ul>
+				<li><a href="#home" data-icon="home"  class="ui-btn-active ui-state-persist">Home</a></li>
+				<li><a href="#pageone" data-icon="grid" >Calculator</a></li>
+				<li><a href="#pagethree" data-icon="info" >Help</a></li>
+				
+			</ul>
+		</div>
+
+
+
+		<div data-role="main" class="ui-content">
+			<p style="text-align: center;">This is a JQuerymobile exercise for calculation of basic arithmetic operations!</p>
+		</div>
+
+
+	<!--	<a href="#pagetwo" data-transition="fade"  class="ui-btn">Page two</a> -->
+
+
+		<div data-role="footer">
+			<h1 style="color: #">Homework</h1>
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+<!-- Second page(cal) -->
+		<div data-role="page" id="pageone"  data-theme="b">
+
+
+		<div data-role="header">
+			<h1>Simple calculator</h1>
+		</div>
+
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-icon="home">Home</a></li>
+				<li><a href="#pageone" data-icon="grid" class="ui-btn-active ui-state-persist">Calculator</a></li>
+				<li><a href="#pagethree" data-icon="info">Help</a></li>
+				
+			</ul>
+		</div>
+
+
+
+		<div data-role="main" class="ui-content">
+			<p style="text-align: center;">Calculator interface goes here!</p>
+
+			<form action="calculator">
+				<input type="text" name="firstVal" id="firstVal" placeholder="Enter first number">
+
+				<select name="op" id="op">
+				  <option value="+">+</option>
+				  <option value="-">-</option>
+				  <option value="X">x</option>
+				  <option value="/">/</option>
+				</select>
+
+				<input type="text" name="secondVal" id="secondVal" placeholder="Enter second number">
+
+				<a id="btnCal" href="#"  data-role="button">Calculate</a>
+
+
+				<p>Result:  <h4 id="result"></h4></p>
+
+			</form>
+
+
+			
+		</div>
+
+
+	<!--	<a href="#pagetwo" data-transition="fade"  class="ui-btn">Page two</a> -->
+
+
+		<div data-role="footer">
+			<h1>Homework</h1>
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+
+	<!-- Third page display cal-->
+
+<div data-role="page" id="pagetwo"  data-theme="b">
+
+
+		<div data-role="header">
+			<h1>Simple calculator</h1>
+		</div>
+
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-icon="home">Home</a></li>
+				<li><a href="#pageone" data-icon="grid" class="ui-btn-active ui-state-persist">Calculator</a></li>
+				<li><a href="#pagethree" data-icon="info" class="">Help</a></li>
+				
+			</ul>
+		</div>
+
+
+
+		<div data-role="main" class="ui-content">
+			<p style="text-align: center;">Results!</p>
+
+			<p>Result:  <h4 id="result"></h4></p>
+
+
+			
+		</div>
+
+
+		<a href="#pageone" data-transition="pop" class="ui-btn">Page one</a>
+
+		<a data-rel="back"  data-transition="pop" class="ui-btn" data-icon="arrow-l">Back</a>
+
+
+	<!--	<a href="#pagetwo" data-transition="fade"  class="ui-btn">Page two</a> -->
+
+
+		<div data-role="footer">
+			<h1>Homework</h1>
+		</div>
+
+
+	</div><!-- End page 3 -->
+
+
+
+
+
+<!-- Page help-->
+<div data-role="page" id="pagethree"  data-theme="b">
+
+
+		<div data-role="header">
+			<h1>Help</h1>
+		</div>
+
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-icon="home">Home</a></li>
+				<li><a href="#pageone" data-icon="grid" >Calculator</a></li>
+				<li><a href="#pagethree" data-icon="info" class="ui-btn-active ui-state-persist">Help</a></li>
+				
+			</ul>
+		</div>
+
+
+
+		<div data-role="main" class="ui-content">
+			<p style="text-align: center;">This is the help section and provides basic info!</p>
+
+			
+		</div>
+
+
+		<a href="#pagefour" data-transition="turn" data-icon="info" data-role="button">More info</a>
+
+
+	<!--	<a href="#pagetwo" data-transition="fade"  class="ui-btn">Page two</a> -->
+
+
+		<div data-role="footer">
+			<h1>Homework</h1>
+		</div>
+
+
+	</div> <!-- ENd of page -->
+
+
+
+
+
+
+<!-- Page help-->
+<div data-role="page" id="pagefour"  data-dialog="true" data-theme="a">
+
+
+		<div data-role="header">
+			<h1>More info</h1>
+		</div>
+
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-icon="home">Home</a></li>
+				<li><a href="#pageone" data-icon="grid" >Calculator</a></li>
+				<li><a href="#pagethree" data-icon="info" class="ui-btn-active">Help</a></li>
+				
+			</ul>
+		</div>
+
+
+
+		<div data-role="main" class="ui-content">
+			<p style="text-align: center;">You have requested for more info about the page!</p>
+
+			
+		</div>
+
+
+
+
+	<!--	<a href="#page" data-transition="fade"  class="ui-btn">Page two</a> -->
+
+	<a data-rel="back" data-transition="pop" data-icon="arrow-l" class="ui-btn">Back</a>
+
+
+		<div data-role="footer">
+			<h1>Homework</h1>
+		</div>
+
+
+	</div> <!-- ENd of page -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	
+
+$(document).ready(function(){
+
+	console.log();
+
+  $('#btnCal').on('click', function() {
+        
+  		console.log("Button click");
+
+  		var first = parseFloat($('#firstVal').val());
+
+  		var second = parseFloat($('#secondVal').val());
+
+  		var op = $('#op').val();
+
+  		//console.log("Value: "+ first + " " + second);
+
+
+
+
+  		//switch
+
+  		    switch (op) {
+        case '+':
+            total = +first + +second;
+            
+            console.log(total);
+            break;
+        case '-':
+            total = +first - +second;
+            
+            break;
+        case '/':
+            total = +first / +second;
+            
+            break;
+        case 'X':
+            total = +first * +second;
+           
+            break;
+
+        }
+
+
+        $('#result').html(first +" "+op+ " " +second + " : "+ total);
+   });
+
+});
+
+
+</script>
+
+</body>
+</html>
