@@ -16,15 +16,6 @@
 		Hansley Chammun </author>
 
 
-		<!-- Define app icon and splashscreen for each platform. -->
-    <platform name="android">
-        <icon   src="images/red.png"               density="ldpi" />
-        <icon   src="images/red.png"               density="mdpi" />
-        <icon   src="images/red.png"               density="hdpi" />
-        <icon   src="images/red.png"              density="xhdpi" />
-        <icon   src="images/red.png"             density="xxhdpi" />
-        <icon   src="images/red.png"            density="xxxhdpi" />
-    </platform>
-		
+
 
 	</widget>
