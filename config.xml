@@ -18,12 +18,12 @@
 
 		<!-- Define app icon and splashscreen for each platform. -->
     <platform name="android">
-        <icon   src="images/heart.png"               density="ldpi" />
-        <icon   src="images/heart.png"               density="mdpi" />
-        <icon   src="images/heart.png"               density="hdpi" />
-        <icon   src="images/heart.png"              density="xhdpi" />
-        <icon   src="images/heart.png"             density="xxhdpi" />
-        <icon   src="images/heart.png"            density="xxxhdpi" />
+        <icon   src="images/red.png"               density="ldpi" />
+        <icon   src="images/red.png"               density="mdpi" />
+        <icon   src="images/red.png"               density="hdpi" />
+        <icon   src="images/red.png"              density="xhdpi" />
+        <icon   src="images/red.png"             density="xxhdpi" />
+        <icon   src="images/red.png"            density="xxxhdpi" />
     </platform>
 		
 
